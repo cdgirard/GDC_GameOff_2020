@@ -1,0 +1,31 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://mini_asteroid_grey/a10006.png" type="Texture" id=1]
+[ext_resource path="res://mini_asteroid_grey/a10008.png" type="Texture" id=2]
+[ext_resource path="res://mini_asteroid_grey/a10010.png" type="Texture" id=3]
+[ext_resource path="res://mini_asteroid_grey/a10000.png" type="Texture" id=4]
+[ext_resource path="res://mini_asteroid_grey/a10015.png" type="Texture" id=5]
+[ext_resource path="res://mini_asteroid_grey/a10004.png" type="Texture" id=6]
+[ext_resource path="res://mini_asteroid_grey/a10009.png" type="Texture" id=7]
+[ext_resource path="res://mini_asteroid_grey/a10014.png" type="Texture" id=8]
+[ext_resource path="res://mini_asteroid_grey/a10012.png" type="Texture" id=9]
+[ext_resource path="res://mini_asteroid_grey/a10011.png" type="Texture" id=10]
+[ext_resource path="res://mini_asteroid_grey/a10002.png" type="Texture" id=11]
+[ext_resource path="res://mini_asteroid_grey/a10013.png" type="Texture" id=12]
+[ext_resource path="res://mini_asteroid_grey/a10001.png" type="Texture" id=13]
+[ext_resource path="res://mini_asteroid_grey/a10003.png" type="Texture" id=14]
+[ext_resource path="res://mini_asteroid_grey/a10005.png" type="Texture" id=15]
+[ext_resource path="res://mini_asteroid_grey/a10007.png" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 6 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 16 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "base",
+"speed": 5.0
+} ]
+
+[node name="MiniGreyAsteroid" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "base"
+frame = 2
