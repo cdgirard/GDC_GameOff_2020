@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dmunk-grinding-a-penny-against-a-rock_V3.wav-40a14883c0cc6afb6144c456d9a7345b.sample"
+
+[deps]
+
+source_file="res://player/dmunk-grinding-a-penny-against-a-rock_V3.wav"
+dest_files=[ "res://.import/dmunk-grinding-a-penny-against-a-rock_V3.wav-40a14883c0cc6afb6144c456d9a7345b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

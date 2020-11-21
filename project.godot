@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GDC_GameOff_2020"
-run/main_scene="res://GameScreen.tscn"
+run/main_scene="res://MainMenuScreen/Scenes/MainMenuScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
