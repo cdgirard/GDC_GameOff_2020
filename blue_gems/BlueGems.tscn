@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://blue_gems/blue_crystals.png" type="Texture" id=1]
+
+[node name="BlueGems" type="Node2D"]
+
+[node name="ResImg" type="Sprite" parent="."]
+texture = ExtResource( 1 )
