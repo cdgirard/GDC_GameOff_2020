@@ -3,6 +3,7 @@ extends Node
 var active_asteroid 
 var asteroid_motion = false
 var asteroid_direction = 0
+var asteroid_search = false
 
 
 

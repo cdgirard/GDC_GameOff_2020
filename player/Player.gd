@@ -4,6 +4,7 @@ enum SIZE {small, medium, large}
 
 # Declare member variables here. Examples:
 var MAX_GRAVITY = 100
+var MAX_GRAVITY_PULL = 6000
 var velocity = Vector2()
 var gravity = Vector2()
 export var speed = 100
@@ -13,19 +14,17 @@ var roll_timer = 0
 var sound_effect_mode = 0
 var sound_effects = false
 var dist_moved = 0
+var pressed = false
 
-func move():
-	pass
-#	if Input.is_action_pressed("ui_right"):
-#		velocity.x += .1
-#	elif Input.is_action_pressed("ui_left"):
-#		velocity.x -= .1
-#	if Input.is_action_pressed("ui_down"):
-#		velocity.y += .1
-#	elif Input.is_action_pressed("ui_up"):
-#		velocity.y -= .1
-	#velocity = velocity.normalized() * speed
-	#move_and_collide(velocity)
+func _input(event):
+	if Input.is_action_pressed("ui_up") and not pressed:
+		print("Up")
+		var angle = (position - Globals.active_asteroid.position).normalized()
+		self.apply_impulse(angle,angle*1000)
+		Globals.asteroid_search = true
+		pressed = true
+	if Input.is_action_just_released("ui_up") :
+		pressed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -83,13 +82,21 @@ func _process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	var angle = (position - Globals.active_asteroid.position).normalized()
+	var dist = position.distance_to(Globals.active_asteroid.position)
+	var gravity_str = 1
+	dist = max(Globals.active_asteroid.asteroid_radius,dist)
+	if dist > MAX_GRAVITY_PULL :
+		gravity_str = 0
+	else :
+		gravity_str = Globals.active_asteroid.asteroid_radius/dist
+	print(dist, " ",gravity_str)
+	
 	#print(angle)
 	gravity.x = -angle.x * MAX_GRAVITY * delta
 	gravity.y = -angle.y * MAX_GRAVITY * delta
 	#print(velocity)
 	self.linear_velocity += gravity
 	#velocity += gravity
-	move()
 
 func play_sound() :
 	var playing = true
@@ -110,6 +117,7 @@ func play_sound() :
 
 func _on_Player_body_entered(body):
 	sound_effects = true
+	Globals.asteroid_search = false
 	
 
 

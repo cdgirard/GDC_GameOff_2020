@@ -5,6 +5,8 @@ onready var BlueGems = preload("res://blue_gems/BlueGems.tscn")
 # var a = 2
 # var b = "text"
 
+export var asteroid_radius = 800
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -8,10 +8,12 @@ onready var GameScreenUI = preload("res://GameScreenUI.tscn")
 var universeSprite = Sprite.new()
 var asteroids = {}
 var player
+var rock_num = 0
+var boost_timer = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	var bkg = Background.instance()
 	add_child(bkg)
 	universeSprite.texture = load("res://universe/universe_map.png")
@@ -63,6 +65,22 @@ func create_map() :
 			col += 1
 		row += 1
 	info.unlock()
+	
+
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+func _process(delta):
+	if Globals.asteroid_search :
+		determine_gravity_source()
+#	var count = 0
+#	if Input.is_action_pressed("ui_up"):
+#		print("Up")
+#		for pos in asteroids :
+#			if count == rock_num :
+#				Globals.active_asteroid = asteroids[pos]
+#				rock_num += 1
+#				rock_num = rock_num % asteroids.size()
+#				break
+#			count += 1
+	
 #	pass
