@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://MainMenuScreen/Fonts/Equinox Bold.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://MainMenuScreen/Images/night Sky.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://MainMenuScreen/Scripts/Debug.gd" type="Script" id=5]
 [ext_resource path="res://MainMenuScreen/Scripts/HowToButton.gd" type="Script" id=6]
 [ext_resource path="res://MainMenuScreen/Scripts/PlayButton.gd" type="Script" id=7]
+[ext_resource path="res://MainMenuScreen/Images/moon.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -33,6 +34,12 @@ visible = false
 position = Vector2( 512, 300 )
 scale = Vector2( 0.512, 0.3 )
 texture = ExtResource( 2 )
+
+[node name="Moon" type="Sprite" parent="."]
+modulate = Color( 0.172549, 0.423529, 0.74902, 1 )
+position = Vector2( 663.578, 220.003 )
+texture = ExtResource( 8 )
+centered = false
 
 [node name="Label" type="Label" parent="."]
 margin_left = 300.0
@@ -85,6 +92,5 @@ margin_top = 58.0
 margin_right = 182.0
 margin_bottom = 83.0
 text = "Settings"
-[connection signal="draw" from="." to="." method="_on_MainMenuScreen_draw"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="CenterContainer/VBoxContainer/Button" method="_on_Button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button2" to="CenterContainer/VBoxContainer/Button2" method="_on_Button2_pressed"]

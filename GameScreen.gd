@@ -5,12 +5,12 @@ onready var Player = preload("res://player/Player.tscn")
 onready var LargeAsteroid = preload("res://LargeAsteroid/LargeAsteroid.tscn")
 onready var GameScreenUI = preload("res://GameScreenUI.tscn")
 
+
 var universeSprite = Sprite.new()
 var asteroids = {}
 var player
 var rock_num = 0
 var boost_timer = 0
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,9 +20,17 @@ func _ready():
 	create_map()
 	player = Player.instance()
 	player.position.y = -400
+	Globals.player = player
+	Globals.asteroid_search = true # Player starts out in empty space
 	add_child(player)
 	add_child(GameScreenUI.instance())
+
 	determine_gravity_source()
+	#Testing
+#	player.position = Globals.active_asteroid.position
+#	player.position.y += 600
+
+	get_node("RollingMusic").play(0)
 
 func determine_gravity_source() :
 	var min_dist = -1
@@ -67,6 +75,7 @@ func create_map() :
 	info.unlock()
 	
 
+		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

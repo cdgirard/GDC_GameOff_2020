@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Just_Rollin_idk_2-2.wav-810bbec7cb0494074b6737a32b231376.sample"
+
+[deps]
+
+source_file="res://Just_Rollin_idk_2-2.wav"
+dest_files=[ "res://.import/Just_Rollin_idk_2-2.wav-810bbec7cb0494074b6737a32b231376.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

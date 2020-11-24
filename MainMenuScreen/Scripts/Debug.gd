@@ -11,11 +11,9 @@ func _ready():
 	var rng = RandomNumberGenerator.new();
 	for n in range(10):
 		var sprite = Sprite.new()
-		sprite.texture = load("res://MainMenuScreen/star.png")
+		sprite.texture = load("res://MainMenuScreen/Images/star.png")
 		var my_random_numberx = n * 1024/10
-		print(my_random_numberx);
 		var my_random_numbery = n * 600/10
-		print(my_random_numbery);
 		var position1 = Vector2(my_random_numberx,my_random_numbery)
 		var scale1 = Vector2(.1,.1);
 		sprite.set_scale(scale1);

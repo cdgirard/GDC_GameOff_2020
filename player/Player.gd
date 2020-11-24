@@ -8,6 +8,7 @@ var MAX_GRAVITY_PULL = 6000
 var velocity = Vector2()
 var gravity = Vector2()
 export var speed = 100
+export var gravity_radius = 200
 var prev_position
 var roll_mode = false
 var roll_timer = 0
@@ -17,10 +18,10 @@ var dist_moved = 0
 var pressed = false
 
 func _input(event):
-	if Input.is_action_pressed("ui_up") and not pressed:
+	if Input.is_action_pressed("ui_up") and not pressed and Globals.copper_portal:
 		print("Up")
 		var angle = (position - Globals.active_asteroid.position).normalized()
-		self.apply_impulse(angle,angle*1000)
+		self.apply_impulse(angle,angle*10*Globals.copper_composition)
 		Globals.asteroid_search = true
 		pressed = true
 	if Input.is_action_just_released("ui_up") :
@@ -43,14 +44,12 @@ func _process(delta):
 	prev_position = position
 	if dist_moved < 0.05 and not roll_mode:
 		roll_timer = 2.0
-		print("Here")
 		add_torque(200.0)
 		roll_mode = true
 		Globals.asteroid_motion = false
 	elif dist_moved > 0.2 and roll_mode :
 		print(dist_moved)
 		roll_timer = 0
-		print("Stop Roll Mode")
 		roll_mode = false
 		add_torque(-applied_torque)
 	elif dist_moved > 0.1 and not roll_mode:
@@ -89,7 +88,6 @@ func _physics_process(delta):
 		gravity_str = 0
 	else :
 		gravity_str = Globals.active_asteroid.asteroid_radius/dist
-	print(dist, " ",gravity_str)
 	
 	#print(angle)
 	gravity.x = -angle.x * MAX_GRAVITY * delta
@@ -126,3 +124,13 @@ func _on_Player_body_exited(body):
 	if dist_moved > 0.4 :
 		if (sound_effect_mode == 2) or (sound_effect_mode == 0) :
 			sound_effect_mode += 1
+
+
+func _on_PortalSensor_area_entered(area):
+	Globals.copper_portal = true
+	pass # Replace with function body.
+
+
+func _on_PortalSensor_area_exited(area):
+	Globals.copper_portal = false
+	pass # Replace with function body.

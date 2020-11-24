@@ -27,3 +27,9 @@ rotation = -0.610865
 [node name="ResourcePoint3" type="Node2D" parent="ResourcePoints"]
 position = Vector2( -347.833, -4.84999 )
 rotation = -2.26893
+
+[node name="PortalPoints" type="Node2D" parent="."]
+
+[node name="PortalPoint1" type="Node2D" parent="PortalPoints"]
+position = Vector2( 0.0198517, -270.208 )
+z_index = 1
