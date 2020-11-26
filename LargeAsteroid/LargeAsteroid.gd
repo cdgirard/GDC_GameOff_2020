@@ -19,6 +19,12 @@ func _ready():
 func _process(delta):
 	spawn_enemies()
 	
+	if self == Globals.active_asteroid and not $RollinMusic.playing :
+		$RollinMusic.playing = true
+	
+	if self != Globals.active_asteroid and $RollinMusic.playing :
+		$RollinMusic.playing = false
+	
 	var count = 0
 	while count < enemies.size() :
 		if enemies[count].in_pool :

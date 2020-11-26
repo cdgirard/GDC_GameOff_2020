@@ -28,3 +28,8 @@ func _process(delta):
 	
 	pass
 
+
+
+func _on_Button3_pressed():
+	get_tree().change_scene("res://MainMenuScreen/Scenes/Settings.tscn")
+	pass

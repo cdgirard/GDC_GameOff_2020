@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/florianreichelt_soft-wind.wav-becc4da30af364238bc2324924d90431.sample"
+
+[deps]
+
+source_file="res://player/florianreichelt_soft-wind.wav"
+dest_files=[ "res://.import/florianreichelt_soft-wind.wav-becc4da30af364238bc2324924d90431.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

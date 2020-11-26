@@ -14,6 +14,7 @@ var boost_timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Globals.starting = true
 	var bkg = Background.instance()
 	add_child(bkg)
 	universeSprite.texture = load("res://universe/universe_map.png")
@@ -29,8 +30,6 @@ func _ready():
 	#Testing
 #	player.position = Globals.active_asteroid.position
 #	player.position.y += 600
-
-	get_node("RollingMusic").play(0)
 
 func determine_gravity_source() :
 	var min_dist = -1

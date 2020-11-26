@@ -1,7 +1,5 @@
 extends RigidBody2D
 
-enum SIZE {small, medium, large}
-
 # Declare member variables here. Examples:
 var MAX_GRAVITY = 100
 var MAX_GRAVITY_PULL = 6000
@@ -16,6 +14,20 @@ var sound_effect_mode = 0
 var sound_effects = false
 var dist_moved = 0
 var pressed = false
+
+#For Growing the Player over time
+var small_img = load("res://player/images/Asteroids_32x32_001.png")
+var med_img = load("res://player/images/Asteroids_64x64_001.png")
+var large_img = load("res://player/images/Asteroids_128x128_001.png")
+var huge_img = load("res://player/images/Asteroids_256x256_001.png")
+
+var images = [small_img, small_img, med_img, large_img, huge_img]
+var scale_size = [0.0, 300.0, 600.0, 1200.0, 2400.0]
+var boundary_rad = [0.0, 15.0, 30.0, 60.0, 120.0]
+var scale_base = [Vector2(0.0,0.0),Vector2(1.0,1.0), Vector2(1.0,1.0), Vector2(1.0,1.0), Vector2(1.0,1.0)]
+
+#For testing growth code
+#var size_timer = 0.1
 
 func _input(event):
 	if Input.is_action_pressed("ui_up") and not pressed and Globals.copper_portal:
@@ -33,13 +45,50 @@ func _ready():
 	prev_position = position
 	#print(velocity)
 	pass
+
+#Keep growing to final max image then just keeps scaling that up.
+func adjust_size() :
+	var total_res = Globals.rock_gathered+Globals.iron_gathered+Globals.copper_gathered
+	var index = 1
+	while (scale_size[index] < total_res) and (index != (scale_size.size()-1)):
+		index += 1
+	
+	var scaleAmt = 1+(total_res-scale_size[index-1])/(scale_size[index]-scale_size[index-1])
+
+	get_node("CollisionShape2D/PlayerImg").texture = images[index]
+	get_node("CollisionShape2D").shape.radius = scaleAmt*boundary_rad[index]
+	get_node("CollisionShape2D/PlayerImg").scale = scaleAmt*scale_base[index]
 		
+func background_music():
+	if Globals.asteroid_search and not $FlyThroughSpace.playing :
+		$FlyThroughSpace.play(7)
+	if $FlyThroughSpace.playing :
+		
+		if not Globals.asteroid_search :
+			$FlyThroughSpace.playing = false
+		else :
+			var dist = position.distance_to(Globals.active_asteroid.position)
+			if dist < 2000 :
+				var volume = (1 - dist / 2000)*25 + 10
+				$FlyThroughSpace.volume_db = -volume
+			else :
+				$FlyThroughSpace.volume_db = -10
+	
 func _process(delta):
+# Was for testing growth code.
+#	size_timer -= delta
+#	if size_timer <= 0 :
+#		Globals.update_gathered(10,10,10)
+#		size_timer = 1
+
+	background_music()
 	if sound_effects :
 		play_sound()
 	#if not get_node
 	var pos_change = (prev_position - position)
 	dist_moved = pos_change.length()
+	
+	adjust_size()
 
 	prev_position = position
 	if dist_moved < 0.05 and not roll_mode:
@@ -93,7 +142,8 @@ func _physics_process(delta):
 	gravity.x = -angle.x * MAX_GRAVITY * delta
 	gravity.y = -angle.y * MAX_GRAVITY * delta
 	#print(velocity)
-	self.linear_velocity += gravity
+	if not Globals.starting : # Wait for start sequence to finish before starting to move
+		self.linear_velocity += gravity
 	#velocity += gravity
 
 func play_sound() :
@@ -116,6 +166,8 @@ func play_sound() :
 func _on_Player_body_entered(body):
 	sound_effects = true
 	Globals.asteroid_search = false
+	# Temp code for comsuming resources
+	
 	
 
 

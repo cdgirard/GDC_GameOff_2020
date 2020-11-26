@@ -93,7 +93,7 @@ func _on_SmallEnemyRock_body_entered(body):
 	print(body.name)
 	if not exploding:
 		if body.name == "Player" :
-			Globals.update_gathered(-40,0,0)
+			Globals.update_gathered(0,0,0) #Attack damage goes here
 		exploding = true
 		self.angular_velocity = 0
 		self.linear_velocity.x = 0

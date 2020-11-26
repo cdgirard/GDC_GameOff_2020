@@ -15,3 +15,5 @@ func _process(delta):
 	get_node("RockProgress").value = Globals.rock_composition
 	get_node("IronProgress").value = Globals.iron_composition
 	get_node("CopperProgress").value = Globals.copper_composition
+	
+

@@ -1,5 +1,7 @@
 extends Node
 
+var starting = false
+
 var active_asteroid
 var asteroid_motion = false
 var asteroid_direction = 0
@@ -21,7 +23,7 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	update_gathered(40,40,10)
+	update_gathered(0,0,0)
 	print("Here")
 	pass # Replace with function body.
 

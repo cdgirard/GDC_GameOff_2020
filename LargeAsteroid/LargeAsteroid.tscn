@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://LargeAsteroid/LargeAsteroidPic.png" type="Texture" id=1]
 [ext_resource path="res://LargeAsteroid/LargeAsteroid.gd" type="Script" id=2]
+[ext_resource path="res://LargeAsteroid/Just_Rollin_idk_2-2.wav" type="AudioStream" id=3]
 
 [node name="LargeAsteroid" type="StaticBody2D"]
 scale = Vector2( 2, 2 )
@@ -33,3 +34,8 @@ rotation = -2.26893
 [node name="PortalPoint1" type="Node2D" parent="PortalPoints"]
 position = Vector2( 0.0198517, -270.208 )
 z_index = 1
+
+[node name="RollinMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -15.0
+attenuation = 0.406126
