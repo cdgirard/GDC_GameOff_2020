@@ -53,18 +53,36 @@ func create_map() :
 			var blockLoc = Vector2(800*col,800*row)
 			var colorInfo = info.get_pixel(col,row)
 			var asteroid = null
-			if colorInfo.r == 0 and colorInfo.g == 0 and colorInfo.b == 0 : #black
+			if colorInfo.r == 0 and colorInfo.g == 0 and colorInfo.b == 0 : #black - Small x2
 				asteroid = LargeAsteroid.instance()
-			if colorInfo.r == 1 and colorInfo.g == 0 and colorInfo.b == 0 : #red
+				asteroid.scale.x = 2
+				asteroid.scale.y = 2
+				asteroid.res_type = asteroid.SMALL_BAL
+			if colorInfo.r == 1 and colorInfo.g == 0 and colorInfo.b == 0 : #red - Med - Copper
 				asteroid = LargeAsteroid.instance()
-			if colorInfo.r == 0 and colorInfo.g == 1 and colorInfo.b == 0 : #green
+				asteroid.scale.x = 3
+				asteroid.scale.y = 3
+				asteroid.res_type = asteroid.MED_COPPER
+			if colorInfo.r == 0 and colorInfo.g == 1 and colorInfo.b == 0 : #green - Med x3
 				asteroid = LargeAsteroid.instance()
-			if colorInfo.r == 0 and colorInfo.g == 0 and colorInfo.b == 1 : #blue
+				asteroid.scale.x = 3
+				asteroid.scale.y = 3
+				asteroid.res_type = asteroid.MED_BAL
+			if colorInfo.r == 0 and colorInfo.g == 0 and colorInfo.b == 1 : #blue - large x4
 				asteroid = LargeAsteroid.instance()
-			if colorInfo.r == 1 and colorInfo.g == 0 and colorInfo.b == 1 : #purple
+				asteroid.scale.x = 4
+				asteroid.scale.y = 4
+				asteroid.res_type = asteroid.LG_BAL
+			if colorInfo.r == 1 and colorInfo.g == 0 and colorInfo.b == 1 : #purple - huge
 				asteroid = LargeAsteroid.instance()
-			if colorInfo.r == 0 and colorInfo.g == 1 and colorInfo.b == 1 : #Blue Green
+				asteroid.scale.x = 6
+				asteroid.scale.y = 6
+				asteroid.res_type = asteroid.LG_BAL
+			if colorInfo.r == 0 and colorInfo.g == 1 and colorInfo.b == 1 : #Blue Green - Med - Iron
 				asteroid = LargeAsteroid.instance()
+				asteroid.scale.x = 3
+				asteroid.scale.y = 3
+				asteroid.res_type = asteroid.MED_IRON
 			if asteroid != null :
 					asteroid.position = blockLoc
 					asteroids[asteroid.position] = asteroid

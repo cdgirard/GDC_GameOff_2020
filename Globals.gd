@@ -16,6 +16,7 @@ var iron_composition = 0
 var copper_composition = 0
 
 var copper_portal = false
+var iron_portal = false
 
 var enemy_pool = []
 

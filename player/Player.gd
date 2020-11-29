@@ -31,9 +31,15 @@ var scale_base = [Vector2(0.0,0.0),Vector2(1.0,1.0), Vector2(1.0,1.0), Vector2(1
 
 func _input(event):
 	if Input.is_action_pressed("ui_up") and not pressed and Globals.copper_portal:
-		print("Up")
+		print("Up copper")
 		var angle = (position - Globals.active_asteroid.position).normalized()
-		self.apply_impulse(angle,angle*10*Globals.copper_composition)
+		self.apply_impulse(angle,angle*30*Globals.copper_composition)
+		Globals.asteroid_search = true
+		pressed = true
+	elif Input.is_action_pressed("ui_up") and not pressed and Globals.iron_portal:
+		print("Up iron")
+		var angle = (position - Globals.active_asteroid.position).normalized()
+		self.apply_impulse(angle, angle*10*Globals.iron_composition)
 		Globals.asteroid_search = true
 		pressed = true
 	if Input.is_action_just_released("ui_up") :
@@ -54,10 +60,24 @@ func adjust_size() :
 		index += 1
 	
 	var scaleAmt = 1+(total_res-scale_size[index-1])/(scale_size[index]-scale_size[index-1])
+	scaleAmt = min(5,scaleAmt)
 
+#We can't scale up the whole player object because we keep using bigger and 
+#bigger images so each thing needs to scale differenly.
 	get_node("CollisionShape2D/PlayerImg").texture = images[index]
 	get_node("CollisionShape2D").shape.radius = scaleAmt*boundary_rad[index]
+	#Resizing Area2D collision shape breaks it if we don't defer.
+	get_node("PortalSensor/CollisionShape2D").get_shape().set_deferred("radius", scaleAmt*boundary_rad[index])
 	get_node("CollisionShape2D/PlayerImg").scale = scaleAmt*scale_base[index]
+	
+	var next_zoom = Vector2(max(1,scaleAmt*index*0.5),max(1,scaleAmt*index*0.5))
+	next_zoom.x = min(4,next_zoom.x)
+	next_zoom.y = min(4,next_zoom.y)
+	var tmp_zoom = get_node("Camera2D").zoom.linear_interpolate(next_zoom,0.005)
+	get_node("Camera2D").zoom = tmp_zoom
+	#print(index," ",scaleAmt)
+
+	
 		
 func background_music():
 	if Globals.asteroid_search and not $FlyThroughSpace.playing :
@@ -102,10 +122,12 @@ func _process(delta):
 		roll_mode = false
 		add_torque(-applied_torque)
 	elif dist_moved > 0.1 and not roll_mode:
+		var vel_change = 160.0 / get_node("CollisionShape2D/PlayerImg").texture.get_width()
+		#print("Vel: ",vel_change)
 		if Globals.asteroid_direction == 1 :
-			angular_velocity = -5
+			angular_velocity = -vel_change
 		elif Globals.asteroid_direction == -1 :
-			angular_velocity = 5
+			angular_velocity = vel_change
 			
 	if dist_moved < 0.2:
 		get_node("MoveOnAsteroidSoundV1").volume_db = -80
@@ -164,13 +186,12 @@ func play_sound() :
 		sound_effect_mode = 0
 
 func _on_Player_body_entered(body):
+	Globals.update_gathered(1,1,1)
 	sound_effects = true
 	Globals.asteroid_search = false
 	# Temp code for comsuming resources
 	
 	
-
-
 func _on_Player_body_exited(body):
 	sound_effects = false
 	if dist_moved > 0.4 :
@@ -184,5 +205,8 @@ func _on_PortalSensor_area_entered(area):
 
 
 func _on_PortalSensor_area_exited(area):
-	Globals.copper_portal = false
+	if area.get_parent().name == "CopperPortal":
+		Globals.copper_portal = false
+	else:
+		Globals.iron_portal = false
 	pass # Replace with function body.
