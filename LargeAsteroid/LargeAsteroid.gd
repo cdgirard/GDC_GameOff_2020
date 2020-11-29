@@ -4,6 +4,9 @@ enum { NONE, ROCK, IRON, COPPER, GEM, GOLD, ALNICO }
 enum {SMALL_BAL, SMALL_IRON, SMALL_COPPER, MED_BAL, MED_IRON, MED_COPPER, LG_BAL, LG_IRON, LG_COPPER}
 
 onready var BlueGems = preload("res://blue_gems/BlueGems.tscn")
+onready var Rock = preload("res://rock/Rock.tscn")
+onready var IronOre = preload("res://iron_ore/IronOre.tscn")
+onready var CopperOre = preload("res://copper_ore/CopperOre.tscn")
 onready var CopperPortal = preload("res://copper_portal/CopperPortal.tscn")
 onready var IronPortal = preload("res://iron_portal/IronPortal.tscn")
 onready var SmallEnemyRock = preload("res://small_enemy_rock/SmallEnemyRock.tscn")
@@ -95,11 +98,11 @@ func attach_resources() :
 		var res_node = null
 		match resources[count] :
 			ROCK :
-				res_node = BlueGems.instance()
+				res_node = Rock.instance()
 			IRON :
-				res_node = BlueGems.instance()
+				res_node = IronOre.instance()
 			COPPER :
-				res_node = BlueGems.instance()
+				res_node = CopperOre.instance()
 			GEM :
 				pass
 			GOLD :

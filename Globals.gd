@@ -18,6 +18,10 @@ var copper_composition = 0
 var copper_portal = false
 var iron_portal = false
 
+var contact_rock = false
+var contact_iron_ore = false
+var contact_copper_ore = false
+
 var enemy_pool = []
 
 var player
