@@ -17,7 +17,8 @@ func _process(delta):
 func _on_CopperOre_area_entered(area):
 	if area.name == "PortalSensor" :
 		Globals.contact_copper_ore = true
-		Globals.update_gathered(0,0,10)
+		Globals.update_gathered(0,0,20)
+		get_node("CollectSoundEffect").play()
 		get_node("Explosion").emitting = true
 		get_node("Sprite").visible = false
 		get_node("CollisionShape2D").set_deferred("disabled", true)

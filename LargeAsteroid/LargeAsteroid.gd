@@ -138,8 +138,8 @@ func spawn_enemies() :
 			print("New Enemy")
 		enemy.get_node("AnimatedSprite").playing = true
 		enemy.position = self.position
-		enemy.position.y += 900
-		enemy.position.x += 200
+		enemy.position.y += 450*scale.x
+		enemy.position.x += 100*scale.x
 		enemy.in_pool = false
 		enemy.home_asteroid = self
 		#print(position, " ",enemy.position)

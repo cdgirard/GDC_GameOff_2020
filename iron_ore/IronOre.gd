@@ -17,7 +17,8 @@ func _process(delta):
 func _on_IronOre_area_entered(area):
 	if area.name == "PortalSensor" :
 		Globals.contact_iron_ore = true
-		Globals.update_gathered(0,10,0)
+		Globals.update_gathered(0,20,0)
+		get_node("CollectSoundEffect").play()
 		get_node("Explosion").emitting = true
 		get_node("Sprite").visible = false
 		get_node("CollisionShape2D").set_deferred("disabled", true)

@@ -32,12 +32,14 @@ var scale_base = [Vector2(0.0,0.0),Vector2(1.0,1.0), Vector2(1.0,1.0), Vector2(1
 func _input(event):
 	if Input.is_action_pressed("ui_up") and not pressed and Globals.copper_portal:
 		print("Up copper")
+		get_node("CopperPortalEffect").play()
 		var angle = (position - Globals.active_asteroid.position).normalized()
 		self.apply_impulse(angle,angle*30*Globals.copper_composition)
 		Globals.asteroid_search = true
 		pressed = true
 	elif Input.is_action_pressed("ui_up") and not pressed and Globals.iron_portal:
 		print("Up iron")
+		get_node("IronPortalEffect").play()
 		var angle = (position - Globals.active_asteroid.position).normalized()
 		self.apply_impulse(angle, angle*10*Globals.iron_composition)
 		Globals.asteroid_search = true
@@ -200,13 +202,16 @@ func _on_Player_body_exited(body):
 
 
 func _on_PortalSensor_area_entered(area):
-	Globals.copper_portal = true
+	if area.get_parent().name == "CopperPortal" :
+		Globals.copper_portal = true
+	if area.get_parent().name == "IronPortal" :
+		Globals.iron_portal = true
 	pass # Replace with function body.
 
 
 func _on_PortalSensor_area_exited(area):
 	if area.get_parent().name == "CopperPortal":
 		Globals.copper_portal = false
-	else:
+	if area.get_parent().name == "IronPortal" :
 		Globals.iron_portal = false
 	pass # Replace with function body.

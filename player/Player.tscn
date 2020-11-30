@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/images/Asteroids_32x32_001.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://player/dmunk-grinding-a-penny-against-a-rock_V2.wav" type="AudioStream" id=4]
 [ext_resource path="res://player/dmunk-grinding-a-penny-against-a-rock_V3.wav" type="AudioStream" id=5]
 [ext_resource path="res://player/florianreichelt_soft-wind.wav" type="AudioStream" id=6]
+[ext_resource path="res://player/portal_generic_v4.wav" type="AudioStream" id=7]
+[ext_resource path="res://player/portal_generic_v3.wav" type="AudioStream" id=8]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.25
@@ -53,6 +55,14 @@ shape = SubResource( 3 )
 [node name="FlyThroughSpace" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -10.0
+
+[node name="CopperPortalEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -15.0
+
+[node name="IronPortalEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -15.0
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Player_body_exited"]
 [connection signal="area_entered" from="PortalSensor" to="." method="_on_PortalSensor_area_entered"]

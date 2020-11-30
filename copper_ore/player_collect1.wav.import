@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/player_collect1.wav-c88d29651f06d326f8736ec7245e2aa6.sample"
+
+[deps]
+
+source_file="res://copper_ore/player_collect1.wav"
+dest_files=[ "res://.import/player_collect1.wav-c88d29651f06d326f8736ec7245e2aa6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

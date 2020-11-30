@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://iron_ore/iron_ore.png" type="Texture" id=1]
 [ext_resource path="res://iron_ore/IronOre.gd" type="Script" id=2]
+[ext_resource path="res://iron_ore/player_collect_v2.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -40,4 +41,8 @@ emitting = false
 amount = 100
 one_shot = true
 process_material = SubResource( 4 )
+
+[node name="CollectSoundEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -15.0
 [connection signal="area_entered" from="." to="." method="_on_IronOre_area_entered"]

@@ -17,7 +17,8 @@ func _process(delta):
 func _on_Rock_area_entered(area):
 	if area.name == "PortalSensor" :
 		Globals.contact_rock = true
-		Globals.update_gathered(10,0,0)
+		Globals.update_gathered(20,0,0)
+		get_node("CollectSoundEffect").play()
 		get_node("Explosion").emitting = true
 		get_node("Sprite").visible = false
 		get_node("CollisionShape2D").set_deferred("disabled", true)
