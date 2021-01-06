@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fx_test_sound.wav-aae3609e5c2a026d03c9d243b3a01cd6.sample"
+
+[deps]
+
+source_file="res://menu_screen/settings/assets/fx_test_sound.wav"
+dest_files=[ "res://.import/fx_test_sound.wav-aae3609e5c2a026d03c9d243b3a01cd6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

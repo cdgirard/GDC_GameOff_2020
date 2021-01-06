@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/andy19__tablet-typing.wav-58679f6e6e3d329c2c41095bbc104fdd.sample"
+
+[deps]
+
+source_file="res://misc/andy19__tablet-typing.wav"
+dest_files=[ "res://.import/andy19__tablet-typing.wav-58679f6e6e3d329c2c41095bbc104fdd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

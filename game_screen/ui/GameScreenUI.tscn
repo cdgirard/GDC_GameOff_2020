@@ -1,0 +1,124 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://game_screen/ui/PlayerThoughtsLabel.gd" type="Script" id=1]
+[ext_resource path="res://game_screen/MaterialBars.gd" type="Script" id=2]
+[ext_resource path="res://game_screen/ui/assets/res_overlay.png" type="Texture" id=3]
+[ext_resource path="res://game_screen/ui/assets/res_bar_base.png" type="Texture" id=4]
+[ext_resource path="res://menu_screen/Fonts/Equinox Regular.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://game_screen/ui/assets/player_speech_syllable009.wav" type="AudioStream" id=6]
+[ext_resource path="res://game_screen/ui/assets/arrow.png" type="Texture" id=7]
+[ext_resource path="res://game_screen/ui/assets/sun_shiny_ui.png" type="Texture" id=8]
+[ext_resource path="res://game_screen/ui/Sun.gd" type="Script" id=9]
+[ext_resource path="res://misc/status_bars/EmptyBar.png" type="Texture" id=10]
+[ext_resource path="res://game_screen/ui/MoonBar.gd" type="Script" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 5 )
+
+[node name="GameScreenUI" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 143.557
+margin_top = 70.984
+margin_right = -856.443
+margin_bottom = -529.016
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MaterialBars" type="GridContainer" parent="CanvasLayer"]
+margin_right = 206.0
+margin_bottom = 92.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RockProgress" type="TextureProgress" parent="CanvasLayer/MaterialBars"]
+margin_right = 206.0
+margin_bottom = 28.0
+value = 100.0
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+tint_progress = Color( 0.984314, 0.984314, 0.984314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IronProgress" type="TextureProgress" parent="CanvasLayer/MaterialBars"]
+margin_top = 32.0
+margin_right = 206.0
+margin_bottom = 60.0
+value = 98.0
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+tint_progress = Color( 0.121569, 0.698039, 0.921569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CopperProgress" type="TextureProgress" parent="CanvasLayer/MaterialBars"]
+margin_top = 64.0
+margin_right = 206.0
+margin_bottom = 92.0
+value = 100.0
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+tint_progress = Color( 0.92549, 0.588235, 0.0627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoonBar" type="GridContainer" parent="CanvasLayer"]
+margin_left = 191.0
+margin_top = 572.0
+margin_right = 397.0
+margin_bottom = 600.0
+rect_scale = Vector2( 3, 1 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoonProgress" type="TextureProgress" parent="CanvasLayer/MoonBar"]
+margin_right = 206.0
+margin_bottom = 28.0
+max_value = 2400.0
+value = 1200.0
+texture_over = ExtResource( 10 )
+texture_progress = ExtResource( 4 )
+tint_over = Color( 0.890196, 0.831373, 0.270588, 1 )
+tint_progress = Color( 1, 0.901961, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerThoughtsLabel" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 400.0
+margin_top = 113.0
+margin_right = 694.0
+margin_bottom = 260.0
+custom_fonts/normal_font = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundofThoughts" type="AudioStreamPlayer" parent="CanvasLayer/PlayerThoughtsLabel"]
+stream = ExtResource( 6 )
+volume_db = -15.0
+
+[node name="Sun" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 939, 52 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="Direction" type="Sprite" parent="CanvasLayer/Sun"]
+position = Vector2( 0, -100 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )

@@ -16,16 +16,26 @@ _global_script_class_icons={
 [application]
 
 config/name="GDC_GameOff_2020"
-run/main_scene="res://MainMenuScreen/Scenes/MainMenuScreen.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://menu_screen/MenuScreen.tscn"
+config/icon="res://AsterRoll_Icon.png"
 
 [autoload]
 
 Globals="*res://Globals.gd"
+Universe="*res://universe/Universe.gd"
+MusicPlayer="*res://music/MusicPlayer.tscn"
 
 [display]
 
 window/size/width=1000
+
+[input]
+
+click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [rendering]
 

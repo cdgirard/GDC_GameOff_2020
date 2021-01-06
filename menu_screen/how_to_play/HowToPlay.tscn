@@ -1,0 +1,279 @@
+[gd_scene load_steps=66 format=2]
+
+[ext_resource path="res://menu_screen/Fonts/Equinox Bold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://menu_screen/MYTheme.theme" type="Theme" id=2]
+[ext_resource path="res://menu_screen/assets/Starbasesnow_0.png" type="Texture" id=3]
+[ext_resource path="res://menu_screen/how_to_play/GoBackButton.gd" type="Script" id=4]
+[ext_resource path="res://game_screen/large_asteroid/assets/BigAsteroid2-newrender3.png" type="Texture" id=5]
+[ext_resource path="res://game_screen/portal/assets/portal_00002.png" type="Texture" id=6]
+[ext_resource path="res://game_screen/portal/assets/portal_00025.png" type="Texture" id=7]
+[ext_resource path="res://game_screen/portal/assets/portal_00016.png" type="Texture" id=8]
+[ext_resource path="res://game_screen/portal/assets/portal_00022.png" type="Texture" id=9]
+[ext_resource path="res://game_screen/portal/assets/portal_00020.png" type="Texture" id=10]
+[ext_resource path="res://game_screen/portal/assets/portal_00011.png" type="Texture" id=11]
+[ext_resource path="res://game_screen/portal/assets/portal_00014.png" type="Texture" id=12]
+[ext_resource path="res://game_screen/portal/assets/portal_00007.png" type="Texture" id=13]
+[ext_resource path="res://game_screen/portal/assets/portal_00021.png" type="Texture" id=14]
+[ext_resource path="res://game_screen/portal/assets/portal_00003.png" type="Texture" id=15]
+[ext_resource path="res://game_screen/portal/assets/portal_00012.png" type="Texture" id=16]
+[ext_resource path="res://game_screen/portal/assets/portal_00005.png" type="Texture" id=17]
+[ext_resource path="res://game_screen/portal/assets/portal_00001.png" type="Texture" id=18]
+[ext_resource path="res://game_screen/portal/assets/portal_00028.png" type="Texture" id=19]
+[ext_resource path="res://game_screen/portal/assets/portal_00017.png" type="Texture" id=20]
+[ext_resource path="res://game_screen/portal/assets/portal_00004.png" type="Texture" id=21]
+[ext_resource path="res://game_screen/portal/assets/portal_00023.png" type="Texture" id=22]
+[ext_resource path="res://game_screen/portal/assets/portal_00018.png" type="Texture" id=23]
+[ext_resource path="res://game_screen/portal/assets/portal_00015.png" type="Texture" id=24]
+[ext_resource path="res://game_screen/portal/assets/portal_00006.png" type="Texture" id=25]
+[ext_resource path="res://game_screen/portal/assets/portal_00024.png" type="Texture" id=26]
+[ext_resource path="res://game_screen/portal/assets/portal_00009.png" type="Texture" id=27]
+[ext_resource path="res://game_screen/portal/assets/portal_00029.png" type="Texture" id=28]
+[ext_resource path="res://game_screen/portal/assets/portal_00027.png" type="Texture" id=29]
+[ext_resource path="res://game_screen/portal/assets/portal_00026.png" type="Texture" id=30]
+[ext_resource path="res://game_screen/portal/assets/portal_00008.png" type="Texture" id=31]
+[ext_resource path="res://game_screen/portal/assets/portal_00010.png" type="Texture" id=32]
+[ext_resource path="res://game_screen/portal/assets/portal_00000.png" type="Texture" id=33]
+[ext_resource path="res://game_screen/portal/assets/portal_00019.png" type="Texture" id=34]
+[ext_resource path="res://game_screen/portal/assets/portal_00013.png" type="Texture" id=35]
+[ext_resource path="res://game_screen/player/assets/Asteroids_32x32_001.png" type="Texture" id=36]
+[ext_resource path="res://game_screen/iron_ore/assets/iron.png" type="Texture" id=37]
+[ext_resource path="res://game_screen/rock/assets/rock2.png" type="Texture" id=38]
+[ext_resource path="res://game_screen/alnico_alloy/assets/nickle.png" type="Texture" id=39]
+[ext_resource path="res://game_screen/copper_ore/assets/copper.png" type="Texture" id=40]
+[ext_resource path="res://game_screen/blue_gems/assets/gems.png" type="Texture" id=41]
+[ext_resource path="res://game_screen/gold/assets/gold.png" type="Texture" id=42]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10004.png" type="Texture" id=43]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10006.png" type="Texture" id=44]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10005.png" type="Texture" id=45]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10014.png" type="Texture" id=46]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10015.png" type="Texture" id=47]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10010.png" type="Texture" id=48]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10008.png" type="Texture" id=49]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10013.png" type="Texture" id=50]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10012.png" type="Texture" id=51]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10003.png" type="Texture" id=52]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10000.png" type="Texture" id=53]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10002.png" type="Texture" id=54]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10007.png" type="Texture" id=55]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10001.png" type="Texture" id=56]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10011.png" type="Texture" id=57]
+[ext_resource path="res://game_screen/small_enemy_rock/assets/a10009.png" type="Texture" id=58]
+[ext_resource path="res://game_screen/ui/assets/arrow.png" type="Texture" id=59]
+[ext_resource path="res://game_screen/ui/assets/sun_shiny_ui.png" type="Texture" id=60]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 33 ), ExtResource( 18 ), ExtResource( 6 ), ExtResource( 15 ), ExtResource( 21 ), ExtResource( 17 ), ExtResource( 25 ), ExtResource( 13 ), ExtResource( 31 ), ExtResource( 27 ), ExtResource( 32 ), ExtResource( 11 ), ExtResource( 16 ), ExtResource( 35 ), ExtResource( 12 ), ExtResource( 24 ), ExtResource( 8 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 34 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 22 ), ExtResource( 26 ), ExtResource( 7 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 19 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "Default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 53 ), ExtResource( 56 ), ExtResource( 54 ), ExtResource( 52 ), ExtResource( 43 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 55 ), ExtResource( 49 ), ExtResource( 58 ), ExtResource( 48 ), ExtResource( 57 ), ExtResource( 51 ), ExtResource( 50 ), ExtResource( 46 ), ExtResource( 47 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 39 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 0.443137, 0.443137, 0.443137, 1 )
+position = Vector2( 520, 300 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 443.0
+margin_top = 550.0
+margin_right = 557.0
+margin_bottom = 575.0
+theme = ExtResource( 2 )
+text = "go back"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PortalCtrl" type="Control" parent="."]
+margin_left = 50.0
+margin_top = 200.0
+margin_right = 90.0
+margin_bottom = 240.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="PortalCtrl"]
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 1 )
+animation = "Default"
+frame = 8
+playing = true
+
+[node name="Label" type="Label" parent="PortalCtrl"]
+margin_left = 30.0
+margin_right = 873.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 2 )
+text = "When at a portal use the up arrow key to try and fly to a new asteroid for more resources.
+They will glow orange if a copper based portal and blue if an iron base portal."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LargeAsteroidCtrl" type="Control" parent="."]
+margin_left = 60.0
+margin_top = 140.0
+margin_right = 100.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="LargeAsteroidCtrl"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="LargeAsteroidCtrl"]
+margin_left = 60.0
+margin_top = -20.0
+margin_right = 925.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 2 )
+text = "Use left and right arrow keys to rotate the large asteroid and cause you to move.  You will 
+move in the opposite direction of the rotation.  There are lots of different resources located 
+on each of these for you to collect."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerCtrl" type="Control" parent="."]
+margin_left = 40.0
+margin_top = 20.0
+margin_right = 990.0
+margin_bottom = 92.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="PlayerCtrl"]
+position = Vector2( 0, 25 )
+texture = ExtResource( 36 )
+
+[node name="Label" type="Label" parent="PlayerCtrl"]
+margin_left = 29.0
+margin_right = 969.0
+margin_bottom = 92.0
+rect_pivot_offset = Vector2( 500, 225 )
+custom_fonts/font = SubResource( 3 )
+text = "This is you and you are trying to become a moon.  You can directly move the player by clicking the left mouse button and using the mouse pointer to determine the direction.  This will use resources, so try not to use it unless you need to.
+
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SmallEnemyCtrl" type="Control" parent="."]
+margin_left = 30.0
+margin_top = 250.0
+margin_right = 70.0
+margin_bottom = 290.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="SmallEnemyCtrl"]
+position = Vector2( 0, 40 )
+frames = SubResource( 4 )
+frame = 3
+playing = true
+
+[node name="Label" type="Label" parent="SmallEnemyCtrl"]
+margin_left = 30.0
+margin_top = 10.0
+margin_right = 873.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 2 )
+text = "This little guy is trying to stop you and from time to time will try and run into you.  You should be able
+ to avoid him with your movement options.  If it misses then there is a change for it to leave a pile of 
+rubble for you to pick up.  Once you get large enough you will naturally scare them away."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SunCtrl" type="Control" parent="."]
+margin_left = 30.0
+margin_top = 350.0
+margin_right = 70.0
+margin_bottom = 390.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sun" type="Sprite" parent="SunCtrl"]
+position = Vector2( 0, 35 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 60 )
+
+[node name="Arrow" type="Sprite" parent="SunCtrl"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 59 )
+
+[node name="Label" type="Label" parent="SunCtrl"]
+margin_left = 40.0
+margin_right = 968.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 2 )
+text = "This is the sun and is where all the planets are for when you are big enough to become a moon.  The 
+arrow will point the direction.  Portals will glow white when pointed that direction and no other 
+asteroids in the way."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResourcesCtrl" type="Control" parent="."]
+margin_left = 40.0
+margin_top = 450.0
+margin_right = 80.0
+margin_bottom = 490.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ResourcesCtrl"]
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 5 )
+frame = 4
+playing = true
+
+[node name="Label" type="Label" parent="ResourcesCtrl"]
+margin_left = 40.0
+margin_top = -20.0
+margin_right = 968.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 2 )
+text = "These are the major resources you can gather while rolling around on the large asteroids.  Possible
+resources are: Rock, Iron, and Copper.  Special resources are: Blue Gems, Gold, and Alnico.  Each of the 
+special resources provide a multiplier to one of the main resources."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

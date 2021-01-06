@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://game_screen/space_ship/assets/ship1.png" type="Texture" id=1]
+[ext_resource path="res://game_screen/space_ship/spaceship.gd" type="Script" id=2]
+[ext_resource path="res://game_screen/space_ship/assets/target_laser01.wav" type="AudioStream" id=3]
+[ext_resource path="res://game_screen/space_ship/assets/ship2.png" type="Texture" id=4]
+[ext_resource path="res://game_screen/space_ship/assets/ship3.png" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 302.981
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[node name="SpaceShip" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2147483664
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2( 1.25, 1.25 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AimingLaser" type="Line2D" parent="."]
+width = 1.0
+default_color = Color( 1, 0, 0, 1 )
+
+[node name="TakeOff" type="Timer" parent="."]
+
+[node name="FireShot" type="Timer" parent="."]
+
+[node name="AimingLaser2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="timeout" from="TakeOff" to="." method="_on_TakeOff_timeout"]
+[connection signal="timeout" from="FireShot" to="." method="_on_FireShot_timeout"]

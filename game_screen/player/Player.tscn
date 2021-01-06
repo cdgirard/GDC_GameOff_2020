@@ -1,0 +1,128 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://game_screen/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://game_screen/player/assets/Asteroids_32x32_001.png" type="Texture" id=2]
+[ext_resource path="res://game_screen/player/assets/dmunk-grinding-a-penny-against-a-rock_V1.wav" type="AudioStream" id=3]
+[ext_resource path="res://game_screen/player/assets/dmunk-grinding-a-penny-against-a-rock_V2.wav" type="AudioStream" id=4]
+[ext_resource path="res://game_screen/player/assets/dmunk-grinding-a-penny-against-a-rock_V3.wav" type="AudioStream" id=5]
+[ext_resource path="res://game_screen/player/assets/florianreichelt_soft-wind.wav" type="AudioStream" id=6]
+[ext_resource path="res://game_screen/player/assets/portal_generic_charge04.wav" type="AudioStream" id=7]
+[ext_resource path="res://game_screen/rubble_pile/assets/sheet_rubble.png" type="Texture" id=8]
+[ext_resource path="res://game_screen/player/assets/portal_generic_v3.wav" type="AudioStream" id=9]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.1
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.739475 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 1
+emission_sphere_radius = 7.0
+flag_disable_z = true
+spread = 13.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 3 )
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 15.0542
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 15.0
+
+[node name="Player" type="RigidBody2D"]
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+local_coords = false
+process_material = SubResource( 4 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 5 )
+
+[node name="PlayerImg" type="Sprite" parent="CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -1, 0 )
+current = true
+zoom = Vector2( 1.5, 1.5 )
+
+[node name="MoveOnAsteroidSoundV1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -15.0
+
+[node name="MoveOnAsteroidSoundV2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.0
+
+[node name="MoveOnAsteroidSoundV3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+
+[node name="PortalSensor" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalSensor"]
+shape = SubResource( 6 )
+
+[node name="ResourceSensor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResourceSensor"]
+shape = SubResource( 7 )
+
+[node name="FlyThroughSpace" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -5.0
+
+[node name="CopperPortalEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -15.0
+
+[node name="IronPortalEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -15.0
+
+[node name="PortalChargeEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
+
+[node name="PlanetSensor" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanetSensor"]
+shape = SubResource( 8 )
+
+[node name="SpaceShipSensor" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpaceShipSensor"]
+shape = SubResource( 8 )
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Player_body_exited"]
+[connection signal="area_entered" from="PortalSensor" to="." method="_on_PortalSensor_area_entered"]
+[connection signal="area_exited" from="PortalSensor" to="." method="_on_PortalSensor_area_exited"]
+[connection signal="area_entered" from="ResourceSensor" to="." method="_on_ResourceSensor_area_entered"]
+[connection signal="area_entered" from="PlanetSensor" to="." method="_on_PlanetSensor_area_entered"]

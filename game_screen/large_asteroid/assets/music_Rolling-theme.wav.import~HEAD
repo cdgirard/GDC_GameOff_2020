@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/music_Rolling-theme.wav-5c4b0b7d75f237164f2df9eb21af561b.sample"
+
+[deps]
+
+source_file="res://game_screen/large_asteroid/assets/music_Rolling-theme.wav"
+dest_files=[ "res://.import/music_Rolling-theme.wav-5c4b0b7d75f237164f2df9eb21af561b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

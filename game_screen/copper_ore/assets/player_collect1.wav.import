@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/player_collect1.wav-6954398aca36750578d3e773c4163ccd.sample"
+
+[deps]
+
+source_file="res://game_screen/copper_ore/assets/player_collect1.wav"
+dest_files=[ "res://.import/player_collect1.wav-6954398aca36750578d3e773c4163ccd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

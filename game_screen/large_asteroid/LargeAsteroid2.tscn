@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game_screen/large_asteroid/assets/BigAsteroid2_0015.png" type="Texture" id=1]
+[ext_resource path="res://game_screen/large_asteroid/LargeAsteroid.gd" type="Script" id=2]
+[ext_resource path="res://game_screen/large_asteroid/assets/music_Rolling-theme.wav" type="AudioStream" id=3]
+
+[node name="LargeAsteroid" type="StaticBody2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = -1.5708
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 1 )
+
+[node name="RollinMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -17.0
+
+[node name="ResourcePoints" type="Node2D" parent="."]
+scale = Vector2( 0.7, 0.7 )
+
+[node name="ResourcePoint1" type="Node2D" parent="ResourcePoints"]
+position = Vector2( 469.948, -766.325 )
+rotation = 0.610865
+
+[node name="ResourcePoint2" type="Node2D" parent="ResourcePoints"]
+position = Vector2( 665.269, -568.881 )
+rotation = 1.06991
+
+[node name="ResourcePoint3" type="Node2D" parent="ResourcePoints"]
+position = Vector2( 729.497, -334.379 )
+rotation = 1.23046
+
+[node name="ResourcePoint4" type="Node2D" parent="ResourcePoints"]
+position = Vector2( 798.07, -1.88776 )
+rotation = 1.64061
+
+[node name="ResourcePoint5" type="Node2D" parent="ResourcePoints"]
+position = Vector2( 716.236, 310.645 )
+rotation = 1.98444
+
+[node name="ResourcePoint6" type="Node2D" parent="ResourcePoints"]
+position = Vector2( 620.919, 543.994 )
+rotation = 2.01012
+
+[node name="ResourcePoint7" type="Node2D" parent="ResourcePoints"]
+position = Vector2( 437.314, 764.673 )
+rotation = 2.45393
+
+[node name="ResourcePoint8" type="Node2D" parent="ResourcePoints"]
+position = Vector2( 177.816, 919.399 )
+rotation = 3.03759
+
+[node name="ResourcePoint9" type="Node2D" parent="ResourcePoints"]
+position = Vector2( -197.095, 856.633 )
+rotation = 3.64948
+
+[node name="ResourcePoint10" type="Node2D" parent="ResourcePoints"]
+position = Vector2( -413.259, 772.683 )
+rotation = -2.79253
+
+[node name="ResourcePoint11" type="Node2D" parent="ResourcePoints"]
+position = Vector2( -643.227, 568.697 )
+rotation = -2.18166
+
+[node name="ResourcePoint12" type="Node2D" parent="ResourcePoints"]
+position = Vector2( -733.416, 235.145 )
+rotation = -1.63537
+
+[node name="ResourcePoint13" type="Node2D" parent="ResourcePoints"]
+position = Vector2( -758.682, -0.592407 )
+rotation = -1.44991
+
+[node name="ResourcePoint14" type="Node2D" parent="ResourcePoints"]
+position = Vector2( -697.549, -316.732 )
+rotation = -1.10719
+
+[node name="ResourcePoint15" type="Node2D" parent="ResourcePoints"]
+position = Vector2( -561.423, -646.299 )
+rotation = -0.915245
+
+[node name="ResourcePoint16" type="Node2D" parent="ResourcePoints"]
+position = Vector2( -205.859, -902.141 )
+rotation = -0.0872665
+
+[node name="ResourcePoint17" type="Node2D" parent="ResourcePoints"]
+position = Vector2( 227.589, -850.249 )
+rotation = 0.349066
+
+[node name="PortalPoints" type="Node2D" parent="."]
+scale = Vector2( 0.7, 0.7 )
+
+[node name="PortalPoint1" type="Node2D" parent="PortalPoints"]
+position = Vector2( 13.9434, -900.04 )
+z_index = 1
+
+[node name="PortalPoint2" type="Node2D" parent="PortalPoints"]
+position = Vector2( 13.0095, 933.437 )
+rotation = 3.14159
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 3.77563, 0 )
+scale = Vector2( 0.7, 0.7 )
+polygon = PoolVector2Array( -70.0763, -907.378, -19.883, -893.144, 52.7849, -887.9, 139.687, -864.676, 265.544, -835.459, 339.711, -809.989, 398.145, -793.507, 442.345, -772.531, 493.287, -741.816, 520.257, -721.589, 559.213, -688.626, 582.056, -677.367, 605.66, -661.656, 619.811, -647.163, 630.382, -622.7, 640.577, -608.464, 649.298, -586.042, 668.893, -548.056, 678.804, -517.381, 685.883, -478.21, 691.546, -455.085, 700.513, -435.264, 703.816, -414.97, 707.592, -391.845, 715.614, -370.136, 723.637, -353.618, 728.357, -333.325, 735.059, -304.811, 749.892, -276.735, 762.605, -251.838, 777.438, -209.989, 780.616, -173.967, 781.676, -119.405, 780.616, -102.453, 784.854, -84.9722, 792.8, -64.8424, 795.854, -45.6701, 793.023, -1.30798, 784.854, 38.9848, 775.319, 81.8931, 764.195, 122.682, 754.66, 152.347, 751.492, 190.298, 750.548, 224.278, 739.222, 250.706, 726.008, 272.416, 715.625, 302.62, 709.962, 325.272, 699.579, 353.589, 686.365, 382.849, 675.038, 413.053, 664.844, 459.827, 655.105, 481.553, 641.62, 509.272, 625.138, 530.997, 613.152, 550.475, 603.413, 567.706, 589.179, 580.441, 569.701, 601.417, 556.216, 623.892, 527.748, 655.356, 500.03, 685.323, 482.799, 707.048, 464.07, 737.014, 448.338, 759.489, 419.587, 786.049, 377.918, 814.926, 348.452, 843.563, 311.243, 872.611, 271.263, 895.779, 214.127, 913.942, 152.83, 926.05, 110.83, 931.347, 80.5594, 937.023, 45.7484, 940.806, -3.44094, 932.86, -31.0626, 926.049, -61.7114, 915.076, -103.712, 910.914, -140.036, 901.076, -174.09, 882.914, -196.036, 862.482, -219.874, 844.32, -241.063, 832.211, -283.82, 811.022, -315.226, 802.319, -343.604, 802.319, -365.55, 795.509, -420.037, 773.184, -445.767, 767.13, -478.686, 749.346, -493.442, 732.319, -524.848, 704.698, -565.713, 671.022, -593.713, 641.13, -613.767, 615.778, -639.118, 580.589, -663.713, 552.967, -677.713, 518.157, -686.794, 496.211, -690.578, 471.994, -700.038, 447.021, -710.633, 378.913, -721.606, 353.561, -725.389, 314.588, -740.525, 257.831, -739.39, 228.318, -745.444, 191.615, -748.471, 159.453, -753.011, 132.966, -754.146, 102.317, -761.335, 73.1822, -760.2, 49.3443, -760.527, -26.9837, -752.109, -58.2524, -744.492, -95.5341, -745.294, -134.419, -743.289, -148.049, -741.285, -196.957, -733.267, -224.617, -718.435, -266.309, -706.408, -313.212, -695.986, -355.304, -685.964, -384.969, -680.752, -403.409, -676.744, -425.458, -668.726, -440.29, -657.501, -451.916, -649.484, -469.555, -640.264, -497.616, -635.052, -521.268, -629.439, -531.29, -614.607, -549.731, -602.58, -570.176, -599.774, -605.052, -579.329, -631.911, -558.083, -660.774, -530.422, -688.836, -498.352, -716.897, -467.885, -741.351, -443.031, -754.58, -426.194, -769.814, -401.74, -784.646, -385.304, -801.884, -366.864, -815.514, -345.617, -839.566, -326.776, -856.804, -309.137, -865.223, -275.864, -876.046, -244.195, -889.676, -192.937, -897.639, -150.985, -901.385, -102.29, -907.378 )

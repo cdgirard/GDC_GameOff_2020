@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://game_screen/asteroid_belt/AsteroidBelt.gd" type="Script" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -539.391, 0, 539.391, 0, 15.5465, -1593.82, -514.048, -305.441, 514.048, 305.441, 1737.38, -1210.89, -2.82852, -502.837, 2.82852, 502.837, 2502.81, -0.230957, 399.275, -236.946, -399.275, 236.946, 1922.69, 1312.13, 503.968, 0, -503.968, 0, -51.5413, 1754.02, 399.21, 311.09, -399.21, -311.09, -1954.5, 1283.62, -5.03968, 383.016, 5.03968, -383.016, -2509.17, -11.5447, -404.904, 254.072, 404.904, -254.072, -1705.14, -1224.27, -260, 0, 260, 0, 12.6035, -1595.76 )
+}
+
+[node name="AsteroidPath" type="Path2D"]
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="PathFollow2DA" type="PathFollow2D" parent="."]
+position = Vector2( -1316.08, -1385.49 )
+rotation = -0.288507
+offset = 12206.6
+
+[node name="PathFollow2DB" type="PathFollow2D" parent="."]
+position = Vector2( -647.395, -1529.2 )
+rotation = -0.153135
+offset = 12884.8
+
+[node name="PathFollow2DC" type="PathFollow2D" parent="."]
+position = Vector2( 15.5465, -1593.82 )
+rotation = 0.00038168
+
+[node name="PathFollow2DD" type="PathFollow2D" parent="."]
+position = Vector2( 695.572, -1548.57 )
+rotation = 0.14086
+offset = 678.146
+
+[node name="PathFollow2DE" type="PathFollow2D" parent="."]
+position = Vector2( 1363.9, -1386.47 )
+rotation = 0.352434
+offset = 1356.29

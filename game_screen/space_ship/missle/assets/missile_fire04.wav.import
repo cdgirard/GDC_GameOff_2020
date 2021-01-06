@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/missile_fire04.wav-24182129a0ce51bc1e622c434ce5536b.sample"
+
+[deps]
+
+source_file="res://game_screen/space_ship/missle/assets/missile_fire04.wav"
+dest_files=[ "res://.import/missile_fire04.wav-24182129a0ce51bc1e622c434ce5536b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

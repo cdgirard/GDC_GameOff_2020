@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://misc/planets/planet1.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+var fire_impulse = true
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	#Linear velocity with damp of -1 degrades at about 0.99 to 0.985 per tick
+	print($RigidBody2D.position)
+	if fire_impulse :
+		#Mass of 1, force of 2 = 0.72
+		#Mass of 1, force of 1 = 0.36
+		#Mass of 2, force of 1 = 0.18
+		$RigidBody2D.linear_velocity = Vector2(20,0)
+		fire_impulse = false
+	else :
+		$RigidBody2D.linear_velocity = Vector2(0,0)
+"
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 98.254
+
+[node name="Node2D" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 2.0
+gravity_scale = 0.0
+can_sleep = false
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 2 )
